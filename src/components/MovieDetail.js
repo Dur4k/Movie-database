@@ -6,7 +6,7 @@ const MovieDetail = () => {
   return (
     <div className=" mb-10	">
       {/* picture---------------------------------------------------------------*/}
-      <topColumn className="flex flex-row xl:bg-cover ml-0 mt-15  xl:content-around  xl:ml-7 ">
+      <topColumn className="flex flex-row xl:bg-cover ml-0 mt-16  xl:content-around  xl:ml-7 ">
         <div className="m-10 flex-none  ">
           <img
             className=" h-96 shadow-2xl xl:w-62 xl:h-lg overflow-hidden rounded-xl bg-cover object-cover flex-none "
@@ -77,7 +77,7 @@ const MovieDetail = () => {
           <div className="font-mukta font-bold">movies</div>
         </div>
         {/* card */}
-        <movieCardDiv className="  md:ml-0  md:gap-x-1 xl:ml-10 xl:gap-x-6 xl:gap-y-5 place-items-auto   grid sm:grid-cols-2  md:grid-cols-3 xl:grid-cols-4  2xl:grid-cols-5   self-center       justify-items-center     ">
+        <movieCardDiv className="  md:ml-5    md:gap-x-1 xl:ml-10 gap-x-20 gap-y-20 place-items-auto   grid sm:grid-cols-2  md:grid-cols-3 xl:grid-cols-4  2xl:grid-cols-5   self-center       justify-items-center     ">
           <MovieCard />
           <MovieCard />
           <MovieCard />

@@ -45,7 +45,7 @@ const ActorDetail = () => {
         <div className="bg-gray-100 flex flex-col mx-40 rounded-xl mt-10 shadow-xl p-4  ">
           <div className=" border-fuchsia-600 flex flex-row space-x-6 ml-4 items-center  ">
             <div>2004</div>
-            <ion-icon name="ellipsis-horizontal-outline"></ion-icon> <div>Evicted as Bob</div>
+            <i class="fas fa-ellipsis-h"></i> <div>Evicted as Bob</div>
           </div>
         </div>
       </div>
