@@ -5,7 +5,7 @@ const Sidebar_button = ({ active, setActive }) => {
     <button
       onClick={() => setActive(!active)}
       type="button"
-      class=" fixed z-50 top-4 right-4 w-20 h-6 rounded-lg  border-gray-900 focus:outline-none bg-white text-black block lg:hidden "
+      class="visible bg-transparent fixed z-50 top-4 right-4 w-20 h-6 rounded-lg  border-gray-900 focus:outline-none bg-gray-200 text-black block lg:hidden "
     >
       <span class="sr-only">Open site navigation</span>
 
