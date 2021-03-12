@@ -1,8 +1,13 @@
 import React from "react";
+import { useFetchingUrl } from "../api/fetching";
 import ActorCard from "./ActorCard";
 import MovieCard from "./MovieCard";
 
-const MovieDetail = () => {
+const MovieDetail = ({ match }) => {
+  const { data, loading } = useFetchingUrl(
+    `https://api.themoviedb.org/3/movie/${match.params.id}?api_key=a6cf54bca5a91f9a22017d7d14ad617a&language=en-US`
+  );
+
   return (
     <div className=" mb-10	">
       {/* picture---------------------------------------------------------------*/}
@@ -18,7 +23,7 @@ const MovieDetail = () => {
         {/* info ---------------------------------------------------------------- */}
         <div className="mt-12 ">
           <headTitle className="flex xl:flex-row xl:self-end flex-col">
-            <div className="font-mukta text-4xl font-bold ">Tom and jerry</div>
+            <div className="font-mukta text-4xl font-bold ">ddd</div>
             <div className=" font-baloo   xl:px-8 xl:self-end mt-3  text-gray-700  ">best and worsddssdfdsfdsfsdt</div>
           </headTitle>
           <info className="flex-row flex font-jura space-x-6 py-3 text-gray-700">

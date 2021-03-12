@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-
+import { useEffect } from "react";
 export function useOutsideAlerter(ref, setActive) {
   useEffect(() => {
     function handleClickOutside(event) {
       if (ref.current && !ref.current.contains(event.target)) {
+        // eslint-disable-next-line
         setActive(true);
       }
     }
@@ -11,5 +11,6 @@ export function useOutsideAlerter(ref, setActive) {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
+    // eslint-disable-next-line
   }, [ref]);
 }

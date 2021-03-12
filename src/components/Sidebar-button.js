@@ -1,6 +1,4 @@
-import React from "react";
-
-const Sidebar_button = ({ active, setActive }) => {
+const SidebarButton = ({ active, setActive }) => {
   return (
     <button
       onClick={() => setActive(!active)}
@@ -29,4 +27,4 @@ const Sidebar_button = ({ active, setActive }) => {
   );
 };
 
-export default Sidebar_button;
+export default SidebarButton;
