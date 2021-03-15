@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const MovieElement = ({ data_info, title }) => {
   const MovieCard_map = data_info.map((i) => (
-    <Link to={`NowPlaying/${i.id}`}>
+    <Link to={`movie/${i.id}`}>
       <MovieCard key={i.id} data_info={i} />
     </Link>
   ));
