@@ -2,17 +2,17 @@ import React, { useRef, useState } from "react";
 import StickyBox from "react-sticky-box";
 import { Link } from "react-router-dom";
 
-// import ActorDetail from "./components/ActorDetail";
-// import MovieDetail from "./components/MovieDetail";
-// import PopularMovies from "./components/PopularMovies";
 import SidebarButton from "./components/Sidebar-button";
 import { ReactComponent as Svg } from "./img/Screenshot 2021-03-03 at 16.52 1.svg";
 import { useOutsideAlerter } from "./components/CloseSidebar.js";
-// import { fetchPopularMovies, fetchNowPlayingMovies, fetchUpcomingMovies, fetchTopRated } from "./api/api_components.js";
 import MainContent from "./components/MainContent";
+import { fetchGenres } from "./api/api_components";
+import { useFetchingUrl3 } from "./api/fetching";
 const App = () => {
+  const gendres = `https://api.themoviedb.org/3/genre/movie/list?api_key=a6cf54bca5a91f9a22017d7d14ad617a&language=en-UShttps://`;
+
+  const { object3 } = useFetchingUrl3(gendres);
   const [active, setActive] = useState(true);
-  // const [heading, setHeading] = useState("Popular");
 
   // CloseSidebar when you click outside
   const wrapperRef = useRef(null);
@@ -45,46 +45,41 @@ const App = () => {
                 <div className="font-rubik font-medium text-2xl mb-5">Film</div>
 
                 <div className="font-mukta flex-none text-lg space-y-0 px-7 flex flex-col ">
-                  <Link className="button-phill" to={"/"}>
+                  <Link className="button-phill" to={"/movie/"}>
                     Popular
                   </Link>
-                  <Link className="button-phill" to={"/NowPlaying"}>
+                  <Link className="button-phill" to={"/movie/NowPlaying"}>
                     Now Playing
                   </Link>
-                  <Link className="button-phill" to={"/Upcoming"}>
+                  <Link className="button-phill" to={"/movie/Upcoming"}>
                     Upcoming
                   </Link>
-                  <Link className="button-phill" to={"/TopRated"}>
+                  <Link className="button-phill" to={"/movie/TopRated"}>
                     Top Rated
                   </Link>
                 </div>
               </film>
               <filmTags className="flex flex-none  flex-wrap w-auto h-30 text-center font-mukta  justify-center items-center ml-1">
                 <div className=" flex   flex-wrap  ">
-                  <button className="button-tag ">drama</button>
-                  <button className="button-tag">western</button>
-                  <button className="button-tag ">documentary</button>
-                  <button className="button-tag">advanture</button>
-                  <button className="button-tag">romance</button>
-                  <button className="button-tag ">sci-fi</button>
-                  <button className="button-tag">advanture</button>
-                  <button className="button-tag ">sci-fi</button>
-                  <button className="button-tag ">sci-fi</button>
-                  <button className="button-tag ">sci-fi</button>
-                  <button className="button-tag ">sci-fi</button>
-                  <button className="button-tag ">sci-fi</button>
+                  {object3.map((i) => (
+                    <a href={`/gendre/${i.id}`}>
+                      <button genre_id={i.id} className=" button-tag ">
+                        {i.name}
+                      </button>
+                    </a>
+                  ))}
                 </div>
               </filmTags>
               <tvShows className="flex flex-none flex-col w-30 h-80  text-center pt-12">
                 <div className="font-rubik font-medium text-2xl mb-5">TV Shows</div>
                 <div className="font-mukta text-lg space-y-0 px-7 flex flex-col">
-                  <Link to={"/TvPopular"} className="button-phill">
+                  <Link to={"/tv/TvPopular"} className="button-phill">
                     Popular
                   </Link>
-                  <Link to={"/TvLatest"} className="button-phill">
+                  <Link to={"/tv/TvLatest"} className="button-phill">
                     Latest
                   </Link>
-                  <Link to={"/TvTopRated"} className="button-phill">
+                  <Link to={"/tv/TvTopRated"} className="button-phill">
                     Top Rated
                   </Link>
                 </div>
