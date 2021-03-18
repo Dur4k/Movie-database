@@ -2,7 +2,7 @@ import React from "react";
 export function style_percentige(rating_percentige) {
   if (rating_percentige < 15 && rating_percentige > 2) {
     return { width: `${15 + "%"}` };
-  } else if (rating_percentige === 0 || typeof foo === "undefined") {
+  } else if (rating_percentige == 0) {
     return { width: `${100 + "%"}` };
   } else {
     return { width: `${rating_percentige + "%"}` };
@@ -24,9 +24,6 @@ export function calc_color(r) {
 const MovieCard = ({ data_info }) => {
   const roundRating = data_info.vote_average < 10 ? data_info.vote_average * 10 : null;
   const rating_percentige = (roundRating + "").replace(".", "");
-  // if (data_info.loading) {
-  //   return <Loader />;
-  // }
   return (
     <div>
       <div className="grid  sm:mr-3 sm:p-0  p-1   ">
@@ -49,7 +46,7 @@ const MovieCard = ({ data_info }) => {
                     rating_percentige
                   )}`}
                 >
-                  {rating_percentige === 0 || typeof foo === "undefined" ? "No Rating Yet" : rating_percentige + "%"}
+                  {rating_percentige == 0 ? "No Rating Yet" : rating_percentige + "%"}
                 </div>
               </div>
             </div>
