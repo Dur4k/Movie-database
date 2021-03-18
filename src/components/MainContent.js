@@ -37,7 +37,7 @@ const MainContent = () => {
   return (
     <div>
       <Switch>
-        <Route exact path="/movie">
+        <Route exact path="/movie/Popular">
           <MovieElement title="Popular" subTitle="movies" data_info={popularMovies} />
         </Route>
         <Route exact path="/movie/NowPlaying">

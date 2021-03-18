@@ -12,7 +12,7 @@ const GenresTv = ({ match }) => {
       <div className="mt-3 text-center   ">
         <div className="font-rubik font-light italic -mb-1  self-center	 text-2xl ">{result.name}</div>
         <div className="font-mukta font-bold">in TV genres</div>
-        <div className="  p-8 mt-20 md:ml-0  md:gap-x-1 xl:ml-10  gap-y-8 place-items-auto   grid grid-cols-2  sm:grid-cols-3 xl:grid-cols-4  2xl:grid-cols-5   self-center       justify-items-center     ">
+        <div className="  sm:p-8 mt-20 md:ml-0  md:gap-x-1 xl:ml-10  gap-y-8 place-items-auto   grid grid-cols-2  sm:grid-cols-3 xl:grid-cols-4  2xl:grid-cols-5   self-center       justify-items-center     ">
           {object2.map((i) => (
             <a href={`/tv/${i.id}`}>
               <MovieCard key={i.id} data_info={i} />

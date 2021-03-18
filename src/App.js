@@ -46,7 +46,7 @@ const App = () => {
                 <div className="font-rubik font-medium text-2xl mb-5">Film</div>
 
                 <div className="font-mukta flex-none text-lg space-y-0 px-7 flex flex-col ">
-                  <Link className="button-phill" to={"/movie"}>
+                  <Link className="button-phill" to={"/movie/Popular"}>
                     Popular
                   </Link>
                   <Link className="button-phill" to={"/movie/NowPlaying"}>

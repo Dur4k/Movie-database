@@ -10,6 +10,10 @@ module.exports = {
         rubik: ["Rubik"],
       },
       height: {
+        81: "21rem",
+        82: "22rem",
+        83: "23rem",
+        84: "24rem",
         sm: "25rem",
         md: "28rem",
         lg: "30rem",

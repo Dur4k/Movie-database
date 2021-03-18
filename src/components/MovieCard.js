@@ -3,7 +3,7 @@ import Loader from "../api/Loader";
 export function style_percentige(rating_percentige) {
   if (rating_percentige < 15 && rating_percentige > 2) {
     return { width: `${15 + "%"}` };
-  } else if (rating_percentige === 0) {
+  } else if (rating_percentige == 0) {
     return { width: `${100 + "%"}` };
   } else {
     return { width: `${rating_percentige + "%"}` };
@@ -30,8 +30,8 @@ const MovieCard = ({ data_info }) => {
   // }
   return (
     <div>
-      <div className="grid mr-3    ">
-        <div className="flex-col relative   w-56 bg-white border-white rounded-xl  shadow hover:shadow-3xl  ">
+      <div className="grid  sm:mr-3 sm:p-0  p-1   ">
+        <div className="flex-col relative   sm:w-56 bg-white border-white rounded-xl  shadow hover:shadow-3xl   ">
           <img
             className=" border rounded-b-lg  overflow-hidden rounded-xl bg-cover  object-cover  flex-none"
             src={"https://www.themoviedb.org/t/p/w1280/" + data_info.poster_path}
@@ -41,16 +41,16 @@ const MovieCard = ({ data_info }) => {
           <div className="mt-1 mb-9 flex-col  t-12 font-thin text-center text-sm  ">
             {data_info.release_date ? data_info.release_date : data_info.first_air_date}
           </div>
-          <div className="absolute  bottom-0 left-10  ">
+          <div className="absolute  bottom-0 left-9 sm:left-10  ">
             <div className=" flex-col    absolute bottom-0 -left-6  ">
-              <div className=" overflow-hidden  h-3 mb-4 w-48 text-xs flex rounded bg-gray-200">
+              <div className=" overflow-hidden  h-3 mb-4 w-40 sm:w-48 text-xs flex rounded bg-gray-200">
                 <div
                   style={style_percentige(rating_percentige)}
                   className={` place-items-center   justify-center items-center shadow-none flex flex-col text-center whitespace-nowrap text-white  ${calc_color(
                     rating_percentige
                   )}`}
                 >
-                  {rating_percentige === 0 ? "No Rating Yet" : rating_percentige + "%"}
+                  {rating_percentige == 0 ? "No Rating Yet" : rating_percentige + "%"}
                 </div>
               </div>
             </div>

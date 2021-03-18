@@ -29,17 +29,17 @@ const MovieDetail = ({ match }) => {
   return (
     <div className=" mb-10	">
       {/* picture---------------------------------------------------------------*/}
-      <div className="flex flex-row xl:bg-cover ml-0 mt-16  xl:content-around  xl:ml-7 ">
-        <div className="m-10 flex-none  ">
+      <div className="mt-14 flex flex-col  sm:flex-row xl:bg-cover ml-0 mt-15  content-center items-center justify-center xl:content-around  xl:ml-7 ">
+        <div className=" sm:m-10 flex-none  ">
           <img
-            className=" h-96 shadow-2xl xl:w-62 xl:h-lg overflow-hidden rounded-xl bg-cover object-cover flex-none "
+            className="h-md  w-80 sm-lg shadow-2xl xl:w-80 xl:h-lg overflow-hidden rounded-xl bg-cover object-cover flex-none"
             src={"https://www.themoviedb.org/t/p/w1280/" + object.poster_path}
             alt=""
           />
         </div>
         {/* picture--------------------------------------------------------------*/}
         {/* info ---------------------------------------------------------------- */}
-        <div className="mt-12 ">
+        <div className="p-4 sm:p-0 mt-12 ">
           <div className="flex xl:flex-row xl:self-end flex-col">
             <div className="font-mukta text-4xl font-bold ">{object.title ? object.title : object.name}</div>
             <div className=" font-baloo   xl:px-8 xl:self-end mt-3  text-gray-700  ">{object.tagline}</div>
@@ -57,10 +57,10 @@ const MovieDetail = ({ match }) => {
             </div>
           )}
           <div className="">
-            <div className="medium-header ">Rating</div>
+            <div className="medium-header  ">Rating</div>
             <div className="  bottom-0 left-10  ">
               <div className=" flex-col     bottom-0 -left-6  ">
-                <div className=" overflow-hidden mt-3 ml-10 h-4 mb-4 w-6/12 text-xs flex rounded bg-gray-200">
+                <div className=" overflow-hidden mt-3 ml-10 h-4 mb-4 sm:w-6/12 w-9/12 text-xs flex rounded bg-gray-200">
                   <div
                     style={style_percentige(rating_percentige)}
                     className={` place-items-center   justify-center items-center shadow-none flex flex-col text-center whitespace-nowrap text-white  ${calc_color(
@@ -84,16 +84,16 @@ const MovieDetail = ({ match }) => {
                 </a>
               ))}
           </genres>
-          <overview className="flex flex-col  mr-10 mt-10 ">
+          <overview className="flex flex-col  sm:mr-10 mt-10 ">
             <div className="font-mukta font-medium text-lg mb-1">Overview</div>
-            <p className="text-left text-gray-600 ">{object.overview}</p>
+            <p className="text-justify sm:text-left text-gray-600 ">{object.overview}</p>
           </overview>
         </div>
         {/* info ---------------------------------------------------------------- */}
       </div>
-      <div className=" flex flex-col mx-16 pb-5  ">
+      <div className=" flex flex-col  mx-2 sm:mx-16 sm:pb-5  ">
         <div className="medium-header  ">Cast</div>
-        <div className="flex flex-row space-x-3 overflow-x-auto h-64 ml-4 ">
+        <div className="flex flex-row space-x-3 overflow-x-auto h-64 sm:ml-4 ">
           {/* card-------------- */}
           {checkActorAvatar.map((i, index) => (
             <Link to={`/actor/${i.id}`}>
@@ -111,7 +111,7 @@ const MovieDetail = ({ match }) => {
           <div className="font-mukta font-bold">movies</div>
         </div>
         {/* card */}
-        <div className="  md:ml-5    md:gap-x-1 xl:ml-10 gap-x-20 gap-y-20 place-items-auto   grid sm:grid-cols-2  md:grid-cols-3 xl:grid-cols-4  2xl:grid-cols-5   self-center       justify-items-center     ">
+        <div className="grid-cols-2 gap-x-0  md:ml-0  md:gap-x-4 xl:ml-10 xl:gap-x-1 gap-y-5 place-items-auto   grid md:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4  2xl:grid-cols-5   self-center       justify-items-center     ">
           {filterThumbnails(object2).map((i) => (
             <a href={`/${Checkiftv(match)}/${i.id}`}>
               <MovieCard key={i.id} data_info={i} />

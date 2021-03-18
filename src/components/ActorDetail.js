@@ -27,21 +27,21 @@ const ActorDetail = ({ match }) => {
   return (
     <div className=" mb-10 mt-14	">
       {/* picture---------------------------------------------------------------*/}
-      <div className="flex flex-row xl:bg-cover ml-0 mt-15  xl:content-around  xl:ml-7 ">
-        <div className="m-10 flex-none  ">
+      <div className="flex flex-col  sm:flex-row xl:bg-cover ml-0 mt-15  content-center items-center justify-center xl:content-around  xl:ml-7 ">
+        <div className="sm:m-10 flex-none  ">
           <img
-            className=" h-96 shadow-2xl xl:w-62 xl:h-lg overflow-hidden rounded-xl bg-cover object-cover flex-none "
+            className=" w-80 sm-lg shadow-2xl xl:w-80 xl:h-lg overflow-hidden rounded-xl bg-cover object-cover flex-none "
             src={"https://image.tmdb.org/t/p/w780/" + object.profile_path}
             alt=""
           />
         </div>
         {/* picture--------------------------------------------------------------*/}
         {/* info ---------------------------------------------------------------- */}
-        <div className="mt-12 ">
+        <div className="sm:mt-12  p-4 sm:p-0 ">
           <div className="flex xl:flex-row xl:self-end flex-col">
-            <div className="font-mukta text-4xl font-bold ">{object.name}</div>
+            <div className=" text-center sm:text-left font-mukta text-4xl font-bold ">{object.name}</div>
           </div>
-          <div className="flex-col flex font-jura  py-3 text-gray-700">
+          <div className="flex-col   flex font-jura text-center sm:text-left  py-3 text-gray-700">
             <div>
               {object.birthday}
               {object.deathday ? " - " + object.deathday : null}{" "}
@@ -49,11 +49,11 @@ const ActorDetail = ({ match }) => {
           </div>
           <div className="">
             {/* <div className="relative pt-3 ml-7 w-6/12  "> */}
-            <div className="text-gray-600 ">{object.place_of_birth}</div>
+            <div className="text-gray-600 text-center sm:text-left ">{object.place_of_birth}</div>
           </div>
 
-          <div className="flex flex-col  mr-10 mt-10 ">
-            <div className="font-mukta font-medium text-lg mb-1">Overview</div>
+          <div className="flex flex-col  sm:mr-10 sm:mt-10 mt-5 ">
+            <div className="font-mukta text-center sm:text-left font-medium text-lg mb-1">Overview</div>
             <p className="text-left text-gray-600    ">{object.biography}</p>
           </div>
         </div>
@@ -63,16 +63,16 @@ const ActorDetail = ({ match }) => {
       {/* SIMILAR MOVIES */}
       <div className="mt-3 mb-10 text-center">
         <div className="font-rubik font-light italic 	 text-2xl ">Acting</div>
-        <div className="bg-gray-100 flex flex-col  mx-2.5  xl:mx-52 lg:mx-24 md:mx-28 sm:mx-10 rounded-xl mt-10 shadow-xl p-4  ">
+        <div className="bg-gray-100 flex flex-col  mx-2.5  xl:mx-52 lg:mx-24 md:mx-28 sm:mx-10 rounded-xl mt-10 shadow-xl sm:p-4  p-1 ">
           {MovieYearsFromUp.map((i) => (
-            <div className=" border-fuchsia-600 flex flex-row  space-x-2 lg:ml-4   ">
-              <div className=" w-10 mr-2 ">{i.release_date.substring(0, 4)}</div>
-              <i className="fas  fa-ellipsis-h flex items-center  "></i>
-              <div className="   flex text-justify break-all">
-                <Link className="ml-3 font-medium" to={`/movie/${i.id}`}>
+            <div className=" border-fuchsia-600 flex flex-row  space-x-3   ">
+              <div className="flex-shrink-0 w-10  ">{i.release_date.substring(0, 4)}</div>
+              <i className="fas items-start  fa-ellipsis-h flex mt-1  "></i>
+              <div className="   text-justify break-all ">
+                <Link className="inline font-medium" to={`/movie/${i.id}`}>
                   {i.title}
                 </Link>
-                <div className=" mx-1 font-extralight"> as</div> <div className="font-light">{i.character}</div>
+                <div className=" mx-1  inline font-extralight"> as</div> <div className=" inline font-light">{i.character}</div>
               </div>
             </div>
           ))}
@@ -84,7 +84,7 @@ const ActorDetail = ({ match }) => {
           {/* <div className="font-mukta font-bold">in</div> */}
         </div>
         {/* card */}
-        <div className="  md:ml-0  md:gap-x-4 xl:ml-10 xl:gap-x-6 gap-y-5 place-items-auto   grid md:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4  2xl:grid-cols-5   self-center       justify-items-center     ">
+        <div className="grid-cols-2 gap-x-0  md:ml-0  md:gap-x-4 xl:ml-10 xl:gap-x-6 gap-y-5 place-items-auto   grid md:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4  2xl:grid-cols-5   self-center       justify-items-center     ">
           {filterThumbnails(popularityUp).map((i) => (
             <a href={`/movie/${i.id}`}>
               <MovieCard key={i.id} data_info={i} />
