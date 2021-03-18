@@ -1,9 +1,8 @@
 import React from "react";
-import Loader from "../api/Loader";
 export function style_percentige(rating_percentige) {
   if (rating_percentige < 15 && rating_percentige > 2) {
     return { width: `${15 + "%"}` };
-  } else if (rating_percentige == 0) {
+  } else if (rating_percentige === 0 || typeof foo === "undefined") {
     return { width: `${100 + "%"}` };
   } else {
     return { width: `${rating_percentige + "%"}` };
@@ -50,7 +49,7 @@ const MovieCard = ({ data_info }) => {
                     rating_percentige
                   )}`}
                 >
-                  {rating_percentige == 0 ? "No Rating Yet" : rating_percentige + "%"}
+                  {rating_percentige === 0 || typeof foo === "undefined" ? "No Rating Yet" : rating_percentige + "%"}
                 </div>
               </div>
             </div>

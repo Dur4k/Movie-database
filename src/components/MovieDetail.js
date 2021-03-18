@@ -6,7 +6,6 @@ import { style_percentige, calc_color } from "../components/MovieCard.js";
 import { Link } from "react-router-dom";
 import { filterThumbnails } from "./functions";
 import { Checkiftv } from "../api/mapingForm";
-import Loader from "../api/Loader";
 const MovieDetail = ({ match }) => {
   const similarUrl = `https://api.themoviedb.org/3/${Checkiftv(match)}/${
     match.params.id

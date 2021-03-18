@@ -6,7 +6,6 @@ import { ReactComponent as Svg } from "./img/Screenshot 2021-03-03 at 16.52 1.sv
 import { useOutsideAlerter } from "./components/CloseSidebar.js";
 import MainContent from "./components/MainContent";
 import { useFetchingUrl3 } from "./api/fetching";
-import Loader from "./api/Loader";
 const App = () => {
   const gendres = `https://api.themoviedb.org/3/genre/movie/list?api_key=a6cf54bca5a91f9a22017d7d14ad617a&language=en-UShttps://`;
 
