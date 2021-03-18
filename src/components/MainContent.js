@@ -11,7 +11,10 @@ import {
 import MovieElement from "./PopularMovies";
 import MovieDetail from "./MovieDetail";
 
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
+import ActorDetail from "./ActorDetail.js";
+import Genres from "./genres.js";
+import GenresTv from "./GenresTv.js";
 
 const MainContent = () => {
   const [popularMovies, setPopularMovies] = useState([]);
@@ -21,7 +24,6 @@ const MainContent = () => {
   const [onTv, setonTv] = useState([]);
   const [tvTopRated, settvTopRated] = useState([]);
   const [tvPopular, settvPopular] = useState([]);
-
   // eslint-disable-next-line
   useEffect(async () => {
     setPopularMovies(await fetchPopularMovies());
@@ -35,28 +37,35 @@ const MainContent = () => {
   return (
     <div>
       <Switch>
-        <Route exact path="/">
-          <MovieElement title="Popular" data_info={popularMovies} />
+        <Route exact path="/movie">
+          <MovieElement title="Popular" subTitle="movies" data_info={popularMovies} />
         </Route>
-        <Route exact path="/NowPlaying">
-          <MovieElement title="Now Playing" data_info={nowPlayingMovies} />
+        <Route exact path="/movie/NowPlaying">
+          <MovieElement title="Now Playing" subTitle="movies" data_info={nowPlayingMovies} />
         </Route>
-        <Route exact path="/Upcoming">
-          <MovieElement title="Upcoming" data_info={upcomingMovies} />
+        <Route exact path="/movie/Upcoming">
+          <MovieElement title="Upcoming" subTitle="movies" data_info={upcomingMovies} />
         </Route>
-        <Route exact path="/TopRated">
-          <MovieElement title="Top Rated" data_info={topRatedMovies} />
+        <Route exact path="/movie/TopRated">
+          <MovieElement title="Top Rated" subTitle="movies" data_info={topRatedMovies} />
         </Route>
-        <Route exact path="/TvPopular">
-          <MovieElement title="Popular" data_info={tvPopular} />
+        <Route exact path="/tv/TvPopular">
+          <MovieElement title="Popular" subTitle="TV Shows" data_info={tvPopular} />
         </Route>
-        <Route exact path="/TvLatest">
-          <MovieElement title="Popular" data_info={onTv} />
+        <Route exact path="/tv/TvLatest">
+          <MovieElement title="Latest" subTitle="TV Shows" data_info={onTv} />
         </Route>
-        <Route exact path="/TvTopRated">
-          <MovieElement title="Popular" data_info={tvTopRated} />
+
+        <Route exact path="/tv/TvTopRated">
+          <MovieElement title="Top Rated " subTitle="TV Shows" data_info={tvTopRated} />
         </Route>
-        <Route path="/NowPlaying/:id" component={MovieDetail} />
+        <Route path={`/movie/:id/`} component={MovieDetail} />
+        <Route path={`/actor/:id/`} component={ActorDetail} />
+        <Route path={`/tv/gendre/:id/`} component={GenresTv} />
+
+        <Route path={`/gendre/:id/`} component={Genres} />
+        <Route path={`/tv/:id/`} component={MovieDetail} />
+        <Route path={`/gendre/:id/`} component={Genres} />
       </Switch>
     </div>
   );

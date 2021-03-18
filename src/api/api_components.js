@@ -10,6 +10,8 @@ const popular = `${url}/movie/popular`;
 const onTv = `${url}/tv/on_the_air`;
 const tvPopular = `${url}/tv/popular`;
 const tvTopRated = `${url}/tv/top_rated`;
+const gendres = `https://api.themoviedb.org/3/genre/movie/list?api_key=a6cf54bca5a91f9a22017d7d14ad617a&language=en-UShttps://`;
+
 // const movieUrl = `${url}/movie`;
 // const genreUrl = `${url}/genre/movie/list`;
 // const moviesUrl = `${url}/discover/movie`;
@@ -114,6 +116,21 @@ export const fetchPopularMovies = async () => {
   });
   const modifiedData = data.results.map((m) => m);
   return modifiedData;
+};
+
+export const fetchGenres = async () => {
+  try {
+    const { data } = await axios.get(gendres, {
+      params: {
+        api_key: apiKey,
+        language: "en_US",
+        page: 1,
+      },
+    });
+
+    const modifiedData = data.genres.map((m) => m);
+    return modifiedData;
+  } catch (error) {}
 };
 
 ////////////////////////////////////////////////////////////////////////
