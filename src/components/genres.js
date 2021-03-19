@@ -11,8 +11,8 @@ const Genres = ({ match }) => {
   return (
     <div className=" mb-10 mt-5 flex justify-self-center content-center self-center place-content-center items-center justify-center    justify-items-center	">
       <div className="mt-3 text-center   ">
-        <div className="font-rubik font-light italic -mb-1  self-center	 text-2xl ">{result.name}</div>
-        <div className="font-mukta font-bold">in genres</div>
+        <div className="font-rubik font-light italic -mb-1 mt-8 sm:m-0 self-center	 text-2xl ">{result.name}</div>
+        <div className="font-mukta -mb-10  sm:mb-0 font-bold">in genres</div>
         <div className="   sm:p-8 mt-20 md:ml-0  md:gap-x-1 xl:ml-10  gap-y-8 place-items-auto   grid grid-cols-2  sm:grid-cols-3 xl:grid-cols-4  2xl:grid-cols-5   self-center       justify-items-center     ">
           {object2.map((i) => (
             <Suspense fallback={<Loader />}>
