@@ -6,6 +6,8 @@ import { style_percentige, calc_color } from "../components/MovieCard.js";
 import { Link } from "react-router-dom";
 import { filterThumbnails } from "./functions";
 import { Checkiftv } from "../api/mapingForm";
+import img1 from "../img/pic2.png";
+
 const MovieDetail = ({ match }) => {
   const similarUrl = `https://api.themoviedb.org/3/${Checkiftv(match)}/${
     match.params.id
@@ -22,6 +24,8 @@ const MovieDetail = ({ match }) => {
   const roundRating = object.vote_average < 10 ? object.vote_average * 10 : null;
   const rating_percentige = (roundRating + "").replace(".", "");
   const checkActorAvatar = object1.filter((i) => i.profile_path);
+  const checkposter = object.poster_path ? "https://www.themoviedb.org/t/p/w1280/" + object.poster_path : img1;
+
   // if (object.loading) {
   //   return <Loader />;
   // }
@@ -32,7 +36,7 @@ const MovieDetail = ({ match }) => {
         <div className=" sm:m-10 flex-none  ">
           <img
             className="h-md  w-80 sm-lg shadow-2xl xl:w-80 xl:h-lg overflow-hidden rounded-xl bg-cover object-cover flex-none"
-            src={"https://www.themoviedb.org/t/p/w1280/" + object.poster_path}
+            src={checkposter}
             alt=""
           />
         </div>

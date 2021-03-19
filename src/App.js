@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import StickyBox from "react-sticky-box";
 import { Link } from "react-router-dom";
 import SidebarButton from "./components/Sidebar-button";
@@ -6,15 +6,34 @@ import { ReactComponent as Svg } from "./img/Screenshot 2021-03-03 at 16.52 1.sv
 import { useOutsideAlerter } from "./components/CloseSidebar.js";
 import MainContent from "./components/MainContent";
 import { useFetchingUrl3 } from "./api/fetching";
+import axios from "axios";
+import SreachBar from "./components/sreachbar";
 const App = () => {
   const gendres = `https://api.themoviedb.org/3/genre/movie/list?api_key=a6cf54bca5a91f9a22017d7d14ad617a&language=en-UShttps://`;
-
+  const sreachToken = "https://api.themoviedb.org/3/search/multi?api_key=a6cf54bca5a91f9a22017d7d14ad617a&language=en-US&include_adult=false";
   const { object3 } = useFetchingUrl3(gendres);
   const [active, setActive] = useState(true);
+  const [movieSreach, setMovieSreach] = useState([]);
 
   // CloseSidebar when you click outside
   const wrapperRef = useRef(null);
   useOutsideAlerter(wrapperRef, setActive);
+  const onSreachUserInput = async (userInput) => {
+    try {
+      const { data } = await axios.get(sreachToken, {
+        params: {
+          query: userInput,
+          page: 1,
+        },
+      });
+      const modifiedData = data.results.filter((row) => row.media_type === "movie" || row.media_type === "tv");
+      setMovieSreach(modifiedData);
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    onSreachUserInput("i");
+  }, []);
 
   return (
     <div className="flex flex-row  w-full h-full min-h-screen  items-start ">
@@ -88,9 +107,10 @@ const App = () => {
           </div>
         </div>
       </StickyBox>
-
       <div className="     overflow-y-auto flex flex-col   static  lg:max-h-full  max-h-screen w-full  ">
-        <MainContent />
+        <SreachBar onSreachUserInput={onSreachUserInput} />
+
+        <MainContent movieSreach={movieSreach} class="relative" />
       </div>
     </div>
   );

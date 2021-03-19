@@ -15,8 +15,9 @@ import { Switch, Route } from "react-router-dom";
 import ActorDetail from "./ActorDetail.js";
 import Genres from "./genres.js";
 import GenresTv from "./GenresTv.js";
+import SreachMovies from "./SreachMovies.js";
 
-const MainContent = () => {
+const MainContent = ({ movieSreach }) => {
   const [popularMovies, setPopularMovies] = useState([]);
   const [nowPlayingMovies, setnowPlayingMovies] = useState([]);
   const [upcomingMovies, setupcomingMovies] = useState([]);
@@ -54,6 +55,9 @@ const MainContent = () => {
         </Route>
         <Route exact path="/tv/TvLatest">
           <MovieElement title="Latest" subTitle="TV Shows" data_info={onTv} />
+        </Route>
+        <Route exact path="/:id">
+          <SreachMovies title="Latest" movieSreach={movieSreach} subTitle="Sreach results of" />
         </Route>
 
         <Route exact path="/tv/TvTopRated">

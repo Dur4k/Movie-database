@@ -1,4 +1,5 @@
 import React from "react";
+import img1 from "../img/pic1.png";
 export function style_percentige(rating_percentige) {
   if (rating_percentige < 15 && rating_percentige > 2) {
     return { width: `${15 + "%"}` };
@@ -22,17 +23,16 @@ export function calc_color(r) {
   }
 }
 const MovieCard = ({ data_info }) => {
+  const checkposter = !data_info.poster_path ? img1 : "https://www.themoviedb.org/t/p/w1280/" + data_info.poster_path;
+
   const roundRating = data_info.vote_average < 10 ? data_info.vote_average * 10 : null;
   const rating_percentige = (roundRating + "").replace(".", "");
+
   return (
     <div>
       <div className="grid  sm:mr-3 sm:p-0  p-1   ">
         <div className="flex-col relative   sm:w-56 bg-white border-white rounded-xl  shadow hover:shadow-3xl   ">
-          <img
-            className=" border rounded-b-lg  overflow-hidden rounded-xl bg-cover  object-cover  flex-none"
-            src={"https://www.themoviedb.org/t/p/w1280/" + data_info.poster_path}
-            alt=""
-          />
+          <img className=" border rounded-b-lg  overflow-hidden rounded-xl bg-cover  object-cover  flex-none" src={checkposter} alt="" />
           <div className=" mt-3 flex-col  text-lg  font-bold text-center leading-4">{data_info.title ? data_info.title : data_info.name}</div>
           <div className="mt-1 mb-9 flex-col  t-12 font-thin text-center text-sm  ">
             {data_info.release_date ? data_info.release_date : data_info.first_air_date}
@@ -46,7 +46,7 @@ const MovieCard = ({ data_info }) => {
                     rating_percentige
                   )}`}
                 >
-                  {rating_percentige == 0 ? "No Rating Yet" : rating_percentige + "%"}
+                  {rating_percentige == 0 || rating_percentige == 10 ? "No Rating Yet" : rating_percentige + "%"}
                 </div>
               </div>
             </div>
