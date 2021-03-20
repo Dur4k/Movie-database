@@ -104,7 +104,7 @@ const App = () => {
                   </Link>
                 </div>
               </div>
-              <a href="">
+              <a href="https://www.facebook.com/jdurcak">
                 <div className="w-28 ml-20 opacity-30">
                   <img src={writing} />
                 </div>
