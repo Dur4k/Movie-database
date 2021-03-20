@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-// , term, setTerm
 const SreachBar = ({ onSreachUserInput }) => {
   const [userInput, setUserInput] = useState("");
   const history = useHistory();
   const onSubmit = (e) => {
-    // e.preventDefault();
     onSreachUserInput(userInput);
     e.preventDefault();
     history.push(`/${userInput}`);
-    // our parent component is told  what current sreach form is
   };
 
   return (

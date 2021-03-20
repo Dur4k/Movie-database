@@ -26,9 +26,6 @@ const MovieDetail = ({ match }) => {
   const checkActorAvatar = object1.filter((i) => i.profile_path);
   const checkposter = object.poster_path ? "https://www.themoviedb.org/t/p/w1280/" + object.poster_path : img1;
 
-  // if (object.loading) {
-  //   return <Loader />;
-  // }
   return (
     <div className=" mb-10	">
       {/* picture---------------------------------------------------------------*/}

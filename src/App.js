@@ -60,7 +60,7 @@ const App = () => {
                 </a>
               </picture>
 
-              <div className="flex flex-none flex-col w-30 h-60 text-center ">
+              <div className="sm:mt-0 mt-36 flex flex-none flex-col w-30 h-60 text-center ">
                 <div className="font-rubik font-medium text-2xl mb-5">Film</div>
 
                 <div className="font-mukta flex-none text-lg space-y-0 px-7 flex flex-col ">

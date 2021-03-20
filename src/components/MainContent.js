@@ -59,6 +59,9 @@ const MainContent = ({ movieSreach }) => {
         <Route exact path="/:id">
           <SreachMovies title="Latest" movieSreach={movieSreach} subTitle="Sreach results of" />
         </Route>
+        <Route exact path="/">
+          <SreachMovies title="Latest" movieSreach={movieSreach} subTitle="Sreach results of" />
+        </Route>
 
         <Route exact path="/tv/TvTopRated">
           <MovieElement title="Top Rated " subTitle="TV Shows" data_info={tvTopRated} />

@@ -1,7 +1,4 @@
 import axios from "axios";
-// import React, { useState, useEffect } from "react";
-// import Index_child from "../service/index-child.js";
-
 const apiKey = "a6cf54bca5a91f9a22017d7d14ad617a";
 const url = "https://api.themoviedb.org/3";
 const nowPlayingUrl = `${url}/movie/now_playing`;
@@ -12,11 +9,6 @@ const tvPopular = `${url}/tv/popular`;
 const tvTopRated = `${url}/tv/top_rated`;
 const gendres = `https://api.themoviedb.org/3/genre/movie/list?api_key=a6cf54bca5a91f9a22017d7d14ad617a&language=en-UShttps://`;
 
-// const movieUrl = `${url}/movie`;
-// const genreUrl = `${url}/genre/movie/list`;
-// const moviesUrl = `${url}/discover/movie`;
-// const personUrl = `${url}/trending/person/week`;
-// const posterUrl = "https://image.tmdb.org/t/p/original/";
 const upcomingUrl = "https://api.themoviedb.org/3/movie/upcoming?";
 ////////////////////////////////////////////////////////////////////////
 ////////////////////// FETCHING DATA ///////////////////////////////////
