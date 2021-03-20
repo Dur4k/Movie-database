@@ -8,6 +8,7 @@ import MainContent from "./components/MainContent";
 import { useFetchingUrl3 } from "./api/fetching";
 import axios from "axios";
 import SreachBar from "./components/sreachbar";
+import writing from "./img/sign.png";
 const App = () => {
   const gendres = `https://api.themoviedb.org/3/genre/movie/list?api_key=a6cf54bca5a91f9a22017d7d14ad617a&language=en-UShttps://`;
   const sreachToken = "https://api.themoviedb.org/3/search/multi?api_key=a6cf54bca5a91f9a22017d7d14ad617a&language=en-US&include_adult=false";
@@ -103,6 +104,11 @@ const App = () => {
                   </Link>
                 </div>
               </div>
+              <a href="">
+                <div className="w-28 ml-20 opacity-30">
+                  <img src={writing} />
+                </div>
+              </a>
             </nav>
           </div>
         </div>
