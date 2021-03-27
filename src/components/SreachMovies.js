@@ -4,17 +4,16 @@ import img2 from "../img/k3.png";
 
 // {i.media_type === "movie" ? href={`/movie/${i.id}`} :return href={`/movie/${i.id}`}}
 const SreachMovies = ({ movieSreach }) => {
-  console.log(movieSreach);
-  const MovieCard_map = movieSreach.map((i) => (
+  const MovieCard_map = movieSreach.map((i, index) => (
     <a href={`/${i.media_type}/${i.id}`}>
-      <MovieCard key={i.id} data_info={i} />
+      <MovieCard key={index.id} data_info={i} />
     </a>
   ));
   if (movieSreach.length === 0) {
     return (
       <div className="fixed left-1/4 top-2/4 lg:left-1/3 lg:top-1/4 ">
         <div className="w-10/12   ">
-          <img className="" src={img2} />
+          <img alt="img" className="" src={img2} />
         </div>
       </div>
     );
