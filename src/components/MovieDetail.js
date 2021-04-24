@@ -25,6 +25,7 @@ const MovieDetail = ({ match }) => {
   const rating_percentige = (roundRating + "").replace(".", "");
   const checkActorAvatar = object1.filter((i) => i.profile_path);
   const checkposter = object.poster_path ? "https://www.themoviedb.org/t/p/w1280/" + object.poster_path : img1;
+  console.log(similarUrl);
 
   return (
     <div className=" mb-10	">
@@ -111,7 +112,7 @@ const MovieDetail = ({ match }) => {
           <div className="font-mukta font-bold">movies</div>
         </div>
         {/* card */}
-        <div className="grid-cols-2 gap-x-0  md:ml-0  md:gap-x-4 xl:ml-10 xl:gap-x-1 gap-y-5 place-items-auto   grid md:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4  2xl:grid-cols-5   self-center       justify-items-center     ">
+        <div className="grid-cols-2 gap-x-0  md:ml-0  md:gap-x-4 xl:ml-10 xl:gap-x-1 gap-y-5 place-items-auto   grid md:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4    self-center       justify-items-center     ">
           {filterThumbnails(object2).map((i) => (
             <a href={`/${Checkiftv(match)}/${i.id}`}>
               <MovieCard key={i.id} data_info={i} />

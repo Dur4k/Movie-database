@@ -84,7 +84,7 @@ const ActorDetail = ({ match }) => {
           {/* <div className="font-mukta font-bold">in</div> */}
         </div>
         {/* card */}
-        <div className="grid-cols-2 gap-x-0  md:ml-0  md:gap-x-4 xl:ml-10 xl:gap-x-6 gap-y-5 place-items-auto   grid md:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4  2xl:grid-cols-5   self-center       justify-items-center     ">
+        <div className="grid-cols-2 gap-x-0  md:ml-0  md:gap-x-4 xl:ml-10 xl:gap-x-6 gap-y-5 place-items-auto   grid md:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4     self-center       justify-items-center     ">
           {filterThumbnails(popularityUp).map((i) => (
             <a href={`/movie/${i.id}`}>
               <MovieCard key={i.id} data_info={i} />

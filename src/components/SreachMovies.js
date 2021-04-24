@@ -23,7 +23,7 @@ const SreachMovies = ({ movieSreach }) => {
       <div className="mt-3 text-center   ">
         <div className="font-rubik font-light italic -mb-1 mt-8 sm:m-0 self-center	 text-2xl ">Search</div>
         <div className="font-mukta -mb-10  sm:mb-0 font-bold"></div>
-        <div className="  sm:p-8 mt-20 md:ml-0  md:gap-x-1 xl:ml-10  gap-y-8 place-items-auto   grid grid-cols-2  sm:grid-cols-3 xl:grid-cols-4  2xl:grid-cols-5   self-center       justify-items-center     ">
+        <div className="  sm:p-8 mt-20 md:ml-0  md:gap-x-1 xl:ml-10  gap-y-8 place-items-auto   grid grid-cols-2  sm:grid-cols-3 xl:grid-cols-4    self-center       justify-items-center     ">
           {MovieCard_map}
         </div>
       </div>

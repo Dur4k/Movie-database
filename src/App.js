@@ -113,7 +113,7 @@ const App = () => {
           </div>
         </div>
       </StickyBox>
-      <div className="     overflow-y-auto flex flex-col   static  lg:max-h-full  max-h-screen w-full  ">
+      <div className="     overflow-y-auto flex flex-col   static  lg:max-h-full  max-h-screen w-1280   ">
         <SreachBar onSreachUserInput={onSreachUserInput} />
 
         <MainContent movieSreach={movieSreach} class="relative" />
