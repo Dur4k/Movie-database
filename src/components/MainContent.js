@@ -73,10 +73,10 @@ const MainContent = ({ movieSreach, page, setPage, numbOfPages }) => {
           <SreachMovies title="Latest" movieSreach={movieSreach} subTitle="Sreach results of" />
           <Pagination setPage={setPage} page={page} numbOfPages={numbOfPages} />
         </Route>
-        <Route exact path="/">
+        {/* <Route exact path="/">
           <SreachMovies title="Latest" movieSreach={movieSreach} subTitle="Sreach results of" />
           <Pagination setPage={setPage} page={page} numbOfPages={numbOfPages} />
-        </Route>
+        </Route> */}
 
         <Route exact path="/tv/TvTopRated">
           <MovieElement title="Top Rated " subTitle="TV Shows" data_info={tvTopRated} />
