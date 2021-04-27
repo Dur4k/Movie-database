@@ -1,6 +1,7 @@
 import React from "react";
 import MovieCard from "./MovieCard";
 import img2 from "../img/k3.png";
+import Loader from "../api/Loader";
 
 // {i.media_type === "movie" ? href={`/movie/${i.id}`} :return href={`/movie/${i.id}`}}
 const SreachMovies = ({ movieSreach }) => {
@@ -24,7 +25,8 @@ const SreachMovies = ({ movieSreach }) => {
         <div className="font-rubik font-light italic -mb-1 mt-8 sm:m-0 self-center	 text-2xl ">Search</div>
         <div className="font-mukta -mb-10  sm:mb-0 font-bold"></div>
         <div className="  sm:p-8 mt-20 md:ml-0  md:gap-x-1 xl:ml-10  gap-y-8 place-items-auto   grid grid-cols-2  sm:grid-cols-3 xl:grid-cols-4  2xl:grid-cols-5   self-center       justify-items-center     ">
-          {MovieCard_map}
+          {movieSreach && MovieCard_map}
+          {!movieSreach && <Loader />}
         </div>
       </div>
     </div>

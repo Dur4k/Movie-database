@@ -21,11 +21,17 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 142px;
+  width: 152px;
   height: 40px;
   margin: -20px 0 0 -71px;
   background: white;
   filter: contrast(20);
+}
+
+@media only screen and (min-width: 1024px) {
+  .gooey {
+    left: 60%;
+  }
 }
 .dot {
   position: absolute;
