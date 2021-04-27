@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import MovieCard from "./MovieCard";
 import { useFetchingUrl2 } from "../api/fetching";
 import { MatchIdNames, gendresId } from "../api/mapingForm";
 
-const GenresTv = ({ match }) => {
+const GenresTv = ({ match, page }) => {
   const genresSreachUrl = `https://api.themoviedb.org/3/discover/tv?api_key=a6cf54bca5a91f9a22017d7d14ad617a&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${match.params.id}`;
-  const { object2 } = useFetchingUrl2(genresSreachUrl);
-  var result = MatchIdNames(gendresId, match.params.id);
+  const { object2 } = useFetchingUrl2(genresSreachUrl, page);
+  const result = MatchIdNames(gendresId, match.params.id);
+
   return (
     <div className=" mb-10 mt-5 flex justify-self-center content-center self-center place-content-center items-center justify-center    justify-items-center	">
       <div className="mt-3 text-center   ">

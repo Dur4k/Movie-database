@@ -33,15 +33,16 @@ export const useFetchingUrl1 = (link) => {
   return { object1 };
 };
 
-export const useFetchingUrl2 = (link) => {
+export const useFetchingUrl2 = (link, page = "&page=1") => {
   const [object2, setObject2] = useState([]);
   const [loading2, setLoading2] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(link);
+        const response = await fetch(link + `&page=${page}`);
         const json = await response.json();
+
         setObject2(json.results);
       } catch (e) {
         console.error(e);
@@ -49,7 +50,8 @@ export const useFetchingUrl2 = (link) => {
     }
     fetchData();
     setLoading2(false);
-  }, [link]);
+  }, [link, page]);
+
   return { object2, loading2 };
 };
 export const useFetchingUrl3 = (link) => {

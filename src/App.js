@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import StickyBox from "react-sticky-box";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import SidebarButton from "./components/Sidebar-button";
 import { ReactComponent as Svg } from "./img/Screenshot 2021-03-03 at 16.52 1.svg";
 import { useOutsideAlerter } from "./components/CloseSidebar.js";
@@ -15,26 +15,39 @@ const App = () => {
   const { object3 } = useFetchingUrl3(gendres);
   const [active, setActive] = useState(true);
   const [movieSreach, setMovieSreach] = useState([]);
+  const [page, setPage] = useState(1);
+  const [numbOfPages, setNumbOfPages] = useState();
+  const [imp, setimp] = useState();
+  const location = useLocation();
 
+  console.log(location);
   // CloseSidebar when you click outside
   const wrapperRef = useRef(null);
   useOutsideAlerter(wrapperRef, setActive);
+
+  //getting sreach result
   const onSreachUserInput = async (userInput) => {
     try {
       const { data } = await axios.get(sreachToken, {
         params: {
           query: userInput,
-          page: 1,
+          page: page,
         },
       });
       const modifiedData = data.results.filter((row) => row.media_type === "movie" || row.media_type === "tv");
+      setNumbOfPages(data.total_pages);
       setMovieSreach(modifiedData);
+      setimp(userInput);
+
+      return imp === userInput ? null : setPage(1);
     } catch (error) {}
   };
-
   useEffect(() => {
-    onSreachUserInput("i");
+    onSreachUserInput("i ");
   }, []);
+  useEffect(() => {
+    onSreachUserInput(imp);
+  }, [page, imp]);
 
   return (
     <div className="flex flex-row  w-full h-full min-h-screen  items-start ">
@@ -116,7 +129,7 @@ const App = () => {
       <div className="     overflow-y-auto flex flex-col   static  lg:max-h-full  max-h-screen w-1280   ">
         <SreachBar onSreachUserInput={onSreachUserInput} />
 
-        <MainContent movieSreach={movieSreach} class="relative" />
+        <MainContent movieSreach={movieSreach} class="relative" page={page} setPage={setPage} numbOfPages={numbOfPages} />
       </div>
     </div>
   );

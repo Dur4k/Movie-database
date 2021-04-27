@@ -13,13 +13,13 @@ const upcomingUrl = "https://api.themoviedb.org/3/movie/upcoming?";
 ////////////////////////////////////////////////////////////////////////
 ////////////////////// FETCHING DATA ///////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
-export const fetchOnTv = async () => {
+export const fetchOnTv = async (page) => {
   try {
     const { data } = await axios.get(onTv, {
       params: {
         api_key: apiKey,
         language: "en_US",
-        page: 1,
+        page: page,
       },
     });
 
@@ -27,13 +27,13 @@ export const fetchOnTv = async () => {
     return modifiedData;
   } catch (error) {}
 };
-export const fetchTvPopular = async () => {
+export const fetchTvPopular = async (page) => {
   try {
     const { data } = await axios.get(tvPopular, {
       params: {
         api_key: apiKey,
         language: "en_US",
-        page: 1,
+        page: page,
       },
     });
 
@@ -41,13 +41,13 @@ export const fetchTvPopular = async () => {
     return modifiedData;
   } catch (error) {}
 };
-export const fetchTvTopRated = async () => {
+export const fetchTvTopRated = async (page) => {
   try {
     const { data } = await axios.get(tvTopRated, {
       params: {
         api_key: apiKey,
         language: "en_US",
-        page: 1,
+        page: page,
       },
     });
 
@@ -55,13 +55,13 @@ export const fetchTvTopRated = async () => {
     return modifiedData;
   } catch (error) {}
 };
-export const fetchNowPlayingMovies = async () => {
+export const fetchNowPlayingMovies = async (page) => {
   try {
     const { data } = await axios.get(nowPlayingUrl, {
       params: {
         api_key: apiKey,
         language: "en_US",
-        page: 1,
+        page: page,
       },
     });
 
@@ -70,26 +70,26 @@ export const fetchNowPlayingMovies = async () => {
   } catch (error) {}
 };
 
-export const fetchTopRated = async () => {
+export const fetchTopRated = async (page) => {
   try {
     const { data } = await axios.get(topratedUrl, {
       params: {
         api_key: apiKey,
         language: "en - US",
-        page: 1,
+        page: page,
       },
     });
     const modifiedData = data.results.map((m) => m);
     return modifiedData;
   } catch (error) {}
 };
-export const fetchUpcomingMovies = async () => {
+export const fetchUpcomingMovies = async (page) => {
   try {
     const { data } = await axios.get(upcomingUrl, {
       params: {
         api_key: apiKey,
         language: "en_US",
-        page: 1,
+        page: page,
       },
     });
 
@@ -98,25 +98,25 @@ export const fetchUpcomingMovies = async () => {
   } catch (error) {}
 };
 
-export const fetchPopularMovies = async () => {
+export const fetchPopularMovies = async (page) => {
   const { data } = await axios.get(popular, {
     params: {
       api_key: apiKey,
       language: "en_US",
-      page: 1,
+      page: page,
     },
   });
   const modifiedData = data.results.map((m) => m);
   return modifiedData;
 };
 
-export const fetchGenres = async () => {
+export const fetchGenres = async (page) => {
   try {
     const { data } = await axios.get(gendres, {
       params: {
         api_key: apiKey,
         language: "en_US",
-        page: 1,
+        page: page,
       },
     });
 
