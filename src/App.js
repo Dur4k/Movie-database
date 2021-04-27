@@ -126,7 +126,7 @@ const App = () => {
           </div>
         </div>
       </StickyBox>
-      <div className="     overflow-y-auto flex flex-col   static  lg:max-h-full  max-h-screen w-1280   ">
+      <div className="     overflow-y-auto flex flex-col   static  max-h-full   w-1280   ">
         <SreachBar onSreachUserInput={onSreachUserInput} />
 
         <MainContent movieSreach={movieSreach} class="relative" page={page} setPage={setPage} numbOfPages={numbOfPages} />
