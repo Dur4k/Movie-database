@@ -19,7 +19,6 @@ const App = () => {
   const [numbOfPages, setNumbOfPages] = useState();
   const [imp, setimp] = useState();
   const location = useLocation();
-
   console.log(location);
   // CloseSidebar when you click outside
   const wrapperRef = useRef(null);
@@ -50,8 +49,8 @@ const App = () => {
   }, [page, imp]);
 
   return (
-    <div className="flex flex-row  w-full h-full min-h-screen  items-start ">
-      <StickyBox className="z-40">
+    <div className="flex flex-row overflow-auto  w-full h-full min-h-screen  items-start ">
+      <StickyBox className="z-40 ">
         <div
           className={`${
             active ? "invisible" : null
@@ -126,7 +125,7 @@ const App = () => {
           </div>
         </div>
       </StickyBox>
-      <div className="     overflow-y-auto flex flex-col   static  max-h-full   w-1280   ">
+      <div className="overflow-y-auto flex flex-col   static  lg:max-h-full  w-1280   ">
         <SreachBar onSreachUserInput={onSreachUserInput} />
 
         <MainContent movieSreach={movieSreach} class="relative" page={page} setPage={setPage} numbOfPages={numbOfPages} />
