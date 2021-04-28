@@ -10,7 +10,7 @@ const SreachMovies = ({ movieSreach }) => {
       <MovieCard key={index.id} data_info={i} />
     </a>
   ));
-  if (movieSreach.length === 0) {
+  if (movieSreach.length === 0 && movieSreach) {
     return (
       <div className="fixed left-1/4 top-2/4 lg:left-1/3 lg:top-1/4 ">
         <div className="w-10/12   ">

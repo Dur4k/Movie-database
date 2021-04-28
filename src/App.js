@@ -49,7 +49,7 @@ const App = () => {
   }, [page, imp]);
 
   return (
-    <div className="flex flex-row overflow-auto  w-full h-full min-h-screen  items-start ">
+    <div className="flex flex-row overflow-hidden lg:overflow-visible  w-full    items-start ">
       <StickyBox className="z-40 ">
         <div
           className={`${
@@ -125,10 +125,10 @@ const App = () => {
           </div>
         </div>
       </StickyBox>
-      <div className="overflow-y-auto flex flex-col   static  lg:max-h-full  w-1280   ">
+      <div className="overflow-y-auto  flex flex-col   static  lg:max-h-full  w-1280   ">
         <SreachBar onSreachUserInput={onSreachUserInput} />
 
-        <MainContent movieSreach={movieSreach} class="relative" page={page} setPage={setPage} numbOfPages={numbOfPages} />
+        <MainContent movieSreach={movieSreach} class=" relative" page={page} setPage={setPage} numbOfPages={numbOfPages} />
       </div>
     </div>
   );

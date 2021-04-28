@@ -9,7 +9,6 @@ const Pagination = ({ setPage, page, numbOfPages }) => {
     setPage(page - 1);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
-  window.scrollTo({ top: 0, behavior: "smooth" });
   return (
     <div>
       <div className="flex justify-end px-4 sm:px-14 sm:mr-9  sm:-mt-14 sm:mb-10 py-5 -mt-10">
