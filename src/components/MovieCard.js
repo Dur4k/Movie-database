@@ -26,7 +26,7 @@ const MovieCard = ({ data_info }) => {
   const checkposter = !data_info.poster_path ? img1 : "https://www.themoviedb.org/t/p/w1280/" + data_info.poster_path;
 
   const roundRating = data_info.vote_average < 10 ? data_info.vote_average * 10 : null;
-  const rating_percentige = (roundRating + "").replace(".", "");
+  const rating_percentige = (roundRating + "").replace(".", "").substr(0, 2);
 
   return (
     <div>
